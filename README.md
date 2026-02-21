@@ -408,7 +408,7 @@ Voici les résultats :
   │     σ_within ∈ [1.5,2.5])                                          │
   │                                                                    │
   │  Modèle : Beta + copule gaussienne (bornée [0,20], pas de          │
-  │  clipping artificiel). Calibration haute précision pour ARTS/EPS.   │
+  │  clipping artificiel). Calibration haute précision pour ARTS/EPS.  │
   │                                                                    │
   │  Les intervalles sont une enveloppe crédible plutôt qu'un IC       │
   │  fréquentiste formel.                                              │
