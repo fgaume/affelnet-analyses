@@ -396,23 +396,23 @@ Voici les résultats :
   MATHEMATIQUES          │  12.041     12.161   12.299 │   4.866      4.983    5.123 │ 240
   SCIENCES-TECHNO-DP     │  13.238     13.458   13.702 │   3.557      3.662    3.766 │ 240
 
-  ┌─────────────────────────────────────────────────────────────────────┐
+  ┌────────────────────────────────────────────────────────────────────┐
   │  INTERPRÉTATION                                                    │
   │                                                                    │
   │  Les intervalles ci-dessus sont des percentiles 2.5%–97.5% sur     │
   │  l'ensemble des observations (grille × seeds).                     │
   │                                                                    │
   │  Ils intègrent DEUX sources d'incertitude :                        │
-  │   • Variabilité Monte Carlo (N=11000, 20 seeds/point)          │
-  │   • Incertitude de modélisation (ρ ∈ [0.6,0.9],              │
-  │     σ_within ∈ [1.5,2.5])                            │
+  │   • Variabilité Monte Carlo (N=11000, 20 seeds/point)              │
+  │   • Incertitude de modélisation (ρ ∈ [0.6,0.9],                    │
+  │     σ_within ∈ [1.5,2.5])                                          │
   │                                                                    │
-  │  Modèle : Beta + copule gaussienne (bornée [0,20], pas de         │
-  │  clipping artificiel). Calibration haute précision pour ARTS/EPS.  │
+  │  Modèle : Beta + copule gaussienne (bornée [0,20], pas de          │
+  │  clipping artificiel). Calibration haute précision pour ARTS/EPS.   │
   │                                                                    │
   │  Les intervalles sont une enveloppe crédible plutôt qu'un IC       │
   │  fréquentiste formel.                                              │
-  └─────────────────────────────────────────────────────────────────────┘
+  └────────────────────────────────────────────────────────────────────┘
 
   Largeur des intervalles :
   Champ                  │      Δµ       Δσ
