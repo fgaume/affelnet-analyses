@@ -235,6 +235,30 @@ Une fois calibrés, les paramètres (µ_raw, σ_between) permettent de générer
 
 La calibration principale fixe deux hyperparamètres structurels de façon arbitraire : la corrélation intra-champ (ρ = 0.75) et le bruit trimestriel (σ_within = 2.0). Pour mesurer la sensibilité des résultats à ces choix, le programme `model/modelisation_confiance.py` estime des intervalles de confiance en explorant une grille de valeurs alternatives.
 
+```mermaid
+flowchart TD
+    A["Hyperparamètres fixés<br/>dans la calibration principale<br/>ρ = 0.75, σ_within = 2.0"] --> B
+
+    subgraph GRILLE ["Exploration de la grille (4 × 3 = 12 points)"]
+        B["Point de grille<br/>(ρ, σ_within)"] --> C
+        C["Recalibration complète<br/>Nelder-Mead → (µ_raw, σ_between)"] --> D
+        D{"Erreur < 5% ?"}
+        D -- Non --> E["Point rejeté"]
+        D -- Oui --> F["20 simulations<br/>Monte-Carlo<br/>(11 000 élèves × 20 seeds)"]
+        F --> G["Collecte des µ et σ<br/>bruts pour chaque seed"]
+    end
+
+    G --> H["Agrégation de toutes<br/>les observations<br/>(jusqu'à 240 par champ)"]
+    H --> I["Percentiles 2.5% – 97.5%<br/><b>Intervalles de confiance</b>"]
+
+    I --> J["Impact sur le score<br/>Affelnet par scénario"]
+
+    style A fill:#7f8c8d,color:#fff
+    style E fill:#e74c3c,color:#fff
+    style I fill:#27ae60,color:#fff
+    style GRILLE fill:#f8f9fa,stroke:#bdc3c7
+```
+
 **Principe** : on fait varier ρ ∈ {0.60, 0.70, 0.80, 0.90} et σ_within ∈ {1.5, 2.0, 2.5}, soit 12 combinaisons. Pour chaque point de cette grille :
 
 1. **Recalibration complète** : on relance l'optimisation Nelder-Mead pour trouver les (µ_raw, σ_between) qui font coller les statistiques tranchées aux cibles académiques 2025. Les points qui ne convergent pas (erreur relative > 5%) sont rejetés.
