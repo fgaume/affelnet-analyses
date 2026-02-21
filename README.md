@@ -239,7 +239,7 @@ La calibration principale fixe deux hyperparamètres structurels de façon arbit
 flowchart TD
     A["Hyperparamètres fixés<br/>dans la calibration principale<br/>ρ = 0.75, σ_within = 2.0"] --> B
 
-    subgraph GRILLE ["Exploration de la grille (4 × 3 = 12 points)"]
+    subgraph GRILLE ["Exploration de la grille 4×3=12pts"]
         B["Point de grille<br/>(ρ, σ_within)"] --> C
         C["Recalibration complète<br/>Nelder-Mead → (µ_raw, σ_between)"] --> D
         D{"Erreur < 5% ?"}
