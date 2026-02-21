@@ -1,15 +1,44 @@
-Suite à une modélisation statistique, on prend comme hypothèse les moyennes et écarts-types académiques suivants pour simuler 2026 :
+Suite à une modélisation statistique, on prend comme hypothèse les moyennes et écarts-types académiques suivants pour simuler Affelnet Paris 2026 :
 
 |            | Maths  | Français | Histoire-Géo | Langues | Sciences | Arts   | EPS    |
-|------------|--------|----------|--------------|---------|----------|--------|--------|
+| ---------- | ------ | -------- | ------------ | ------- | -------- | ------ | ------ |
 | Moyenne    | 12,152 | 12,631   | 13,119       | 13,822  | 13,458   | 15,930 | 15,883 |
 | Écart-type | 4,989  | 3,945    | 4,076        | 4,211   | 3,660    | 2,960  | 2,889  |
+
+Cette page détaille la méthodologie utilisée pour produire ces chiffres.
 
 ## Méthode d'estimation des statistiques brutes (sans tranchage)
 
 Les seules données publiques disponibles sont les statistiques académiques **après tranchage** (le système Affelnet convertit les notes en paliers {3, 8, 13, 16}). Or, pour simuler un scénario sans tranchage, il faut connaître les distributions brutes des notes.
 
 Le problème est donc inverse : à partir des moyennes et écarts-types observés après tranchage, retrouver les distributions de notes brutes sous-jacentes.
+
+### Vue d'ensemble du processus
+
+```mermaid
+flowchart TD
+    A["Stats académiques 2025<br/><b>après tranchage</b><br/>µ et σ par champ"] --> B
+
+    subgraph CALIB ["Calibration (Nelder-Mead)"]
+        B["Choix de paramètres candidats<br/>(µ_raw, σ_between)"] --> C
+        C["Génération de 11 000 élèves<br/>Loi <b>Beta</b> + copule gaussienne"] --> D
+        D["Notes brutes /20<br/>× 3 trimestres × 12 matières"] --> E
+        E["Tranchage<br/>{3, 8, 13, 16}"] --> F
+        F["Moyenne trimestrielle<br/>+ regroupement par champ"] --> G
+        G{"µ_sim ≈ µ_cible ?<br/>σ_sim ≈ σ_cible ?"}
+        G -- Non --> B
+        G -- Oui --> H["Paramètres calibrés<br/>(µ_raw, σ_between) par champ"]
+    end
+
+    H --> I["Génération finale<br/>11 000 élèves avec<br/>paramètres calibrés"]
+    I --> J["Stats <b>brutes</b><br/>(sans tranchage)<br/>µ et σ par champ"]
+    J --> K["Simulations de scénarios<br/>sans tranchage"]
+
+    style A fill:#e74c3c,color:#fff
+    style H fill:#27ae60,color:#fff
+    style J fill:#2980b9,color:#fff
+    style CALIB fill:#f8f9fa,stroke:#bdc3c7
+```
 
 ### Modèle génératif
 
@@ -28,6 +57,7 @@ Pour chaque champ disciplinaire, on simule 11 000 élèves :
 Pour chaque champ, on cherche le couple (µ_raw, σ_between) tel que, après passage dans le pipeline complet (tranchage → moyenne → regroupement), les statistiques simulées correspondent aux statistiques académiques cibles.
 
 L'optimisation utilise **Nelder-Mead** en plusieurs passes. Nelder-Mead est un algorithme d'optimisation sans gradient : il explore l'espace des paramètres en déformant un simplexe (un triangle en 2D) qui se contracte progressivement vers le minimum. Il est adapté ici car la fonction objectif est bruitée (basée sur des simulations Monte-Carlo) et non différentiable (le tranchage introduit des discontinuités), ce qui exclut les méthodes à gradient classiques.
+
 - **Passe 1** : exploration large sur une grille de points de départ, parallélisée sur plusieurs cœurs.
 - **Passe 2** : raffinement séquentiel autour du meilleur point.
 - **Passe 3** (champs sensibles Arts/EPS) : grille fine 2D supplémentaire, car le tranchage crée une sensibilité extrême autour du seuil 15 pour ces champs à moyennes élevées.
@@ -39,8 +69,6 @@ La fonction objectif compare, sur plusieurs seeds (5 en standard, 12 en haute pr
 ### Résultat
 
 Une fois calibrés, les paramètres (µ_raw, σ_between) permettent de générer des distributions de notes brutes réalistes. Les statistiques de ces distributions **avant tranchage** donnent les moyennes et écarts-types du tableau ci-dessus, utilisés dans les simulations de scénarios sans tranchage.
-
-### Sortie du programme
 
 ```
 ========================================================================
@@ -201,4 +229,186 @@ Une fois calibrés, les paramètres (µ_raw, σ_between) permettent de générer
   ✅ Simulation terminée avec succès
 ========================================================================
 
+```
+
+### Estimation des intervalles de confiance
+
+La calibration principale fixe deux hyperparamètres structurels de façon arbitraire : la corrélation intra-champ (ρ = 0.75) et le bruit trimestriel (σ_within = 2.0). Pour mesurer la sensibilité des résultats à ces choix, le programme `model/modelisation_confiance.py` estime des intervalles de confiance en explorant une grille de valeurs alternatives.
+
+**Principe** : on fait varier ρ ∈ {0.60, 0.70, 0.80, 0.90} et σ_within ∈ {1.5, 2.0, 2.5}, soit 12 combinaisons. Pour chaque point de cette grille :
+
+1. **Recalibration complète** : on relance l'optimisation Nelder-Mead pour trouver les (µ_raw, σ_between) qui font coller les statistiques tranchées aux cibles académiques 2025. Les points qui ne convergent pas (erreur relative > 5%) sont rejetés.
+
+2. **Simulation Monte-Carlo** : pour chaque calibration réussie, on génère 20 jeux de 11 000 élèves avec des seeds différentes, et on collecte les moyennes et écarts-types bruts (sans tranchage) résultants.
+
+Les intervalles à 95% sont les percentiles 2.5%–97.5% sur l'ensemble des observations (12 points de grille × 20 seeds = jusqu'à 240 valeurs par champ). Ils intègrent deux sources d'incertitude :
+
+- **Incertitude de modélisation** : sensibilité aux hypothèses structurelles (ρ, σ_within)
+- **Variabilité Monte-Carlo** : fluctuations dues à l'échantillonnage fini (11 000 élèves)
+
+Ces intervalles constituent une enveloppe crédible plutôt qu'un intervalle de confiance fréquentiste formel. Le calcul est parallélisé sur plusieurs cœurs CPU.
+
+Voici les résultats :
+
+```
+========================================================================
+  ESTIMATION DES INTERVALLES DE CONFIANCE
+  Modèle : Beta + copule gaussienne (cohérent simulation finale)
+  Grille : 4 ρ × 3 σ_within = 12 points × 20 seeds
+  Parallélisation sur 6 cœurs physiques
+  Haute précision pour : ARTS, EPS
+========================================================================
+  [PID 52640] ρ=0.70 σw=2.5 | ARTS                 ✓ err=0.002 [288.8s] [HP]
+  [PID 52636] ρ=0.60 σw=2.5 | ARTS                 ✓ err=0.005 [290.6s] [HP]
+  [PID 52639] ρ=0.70 σw=2.0 | ARTS                 ✓ err=0.003 [304.7s] [HP]
+  [PID 52637] ρ=0.60 σw=2.0 | ARTS                 ✓ err=0.006 [306.8s] [HP]
+  [PID 52635] ρ=0.70 σw=1.5 | ARTS                 ✓ err=0.003 [309.3s] [HP]
+  [PID 52638] ρ=0.60 σw=1.5 | ARTS                 ✓ err=0.002 [313.7s] [HP]
+  [PID 52640] ρ=0.70 σw=2.5 | EPS                  ✓ err=0.011 [162.3s] [HP]
+  [PID 52639] ρ=0.70 σw=2.0 | EPS                  ✓ err=0.009 [154.9s] [HP]
+  [PID 52636] ρ=0.60 σw=2.5 | EPS                  ✓ err=0.006 [171.3s] [HP]
+  [PID 52637] ρ=0.60 σw=2.0 | EPS                  ✓ err=0.011 [168.5s] [HP]
+  [PID 52640] ρ=0.70 σw=2.5 | FRANCAIS             ✓ err=0.008 [27.7s]
+  [PID 52638] ρ=0.60 σw=1.5 | EPS                  ✓ err=0.011 [168.7s] [HP]
+  [PID 52635] ρ=0.70 σw=1.5 | EPS                  ✓ err=0.011 [174.3s] [HP]
+  [PID 52639] ρ=0.70 σw=2.0 | FRANCAIS             ✓ err=0.005 [27.3s]
+  [PID 52636] ρ=0.60 σw=2.5 | FRANCAIS             ✓ err=0.007 [25.6s]
+  [PID 52637] ρ=0.60 σw=2.0 | FRANCAIS             ✓ err=0.005 [25.4s]
+  [PID 52638] ρ=0.60 σw=1.5 | FRANCAIS             ✓ err=0.007 [25.7s]
+  [PID 52635] ρ=0.70 σw=1.5 | FRANCAIS             ✓ err=0.004 [26.1s]
+  [PID 52640] ρ=0.70 σw=2.5 | HISTOIRE-GEO         ✓ err=0.008 [35.3s]
+  [PID 52639] ρ=0.70 σw=2.0 | HISTOIRE-GEO         ✓ err=0.009 [35.8s]
+  [PID 52636] ρ=0.60 σw=2.5 | HISTOIRE-GEO         ✓ err=0.009 [37.2s]
+  [PID 52637] ρ=0.60 σw=2.0 | HISTOIRE-GEO         ✓ err=0.010 [34.3s]
+  [PID 52638] ρ=0.60 σw=1.5 | HISTOIRE-GEO         ✓ err=0.010 [35.9s]
+  [PID 52635] ρ=0.70 σw=1.5 | HISTOIRE-GEO         ✓ err=0.009 [39.3s]
+  [PID 52640] ρ=0.70 σw=2.5 | LANGUES VIVANTES     ✓ err=0.007 [38.5s]
+  [PID 52639] ρ=0.70 σw=2.0 | LANGUES VIVANTES     ✓ err=0.010 [37.4s]
+  [PID 52636] ρ=0.60 σw=2.5 | LANGUES VIVANTES     ✓ err=0.011 [37.7s]
+  [PID 52640] ρ=0.70 σw=2.5 | MATHEMATIQUES        ✓ err=0.005 [18.8s]
+  [PID 52637] ρ=0.60 σw=2.0 | LANGUES VIVANTES     ✓ err=0.010 [38.9s]
+  [PID 52639] ρ=0.70 σw=2.0 | MATHEMATIQUES        ✓ err=0.009 [18.1s]
+  [PID 52636] ρ=0.60 σw=2.5 | MATHEMATIQUES        ✓ err=0.012 [17.6s]
+  [PID 52638] ρ=0.60 σw=1.5 | LANGUES VIVANTES     ✓ err=0.012 [39.5s]
+  [PID 52635] ρ=0.70 σw=1.5 | LANGUES VIVANTES     ✓ err=0.008 [37.3s]
+  [PID 52637] ρ=0.60 σw=2.0 | MATHEMATIQUES        ✓ err=0.010 [18.2s]
+  [PID 52638] ρ=0.60 σw=1.5 | MATHEMATIQUES        ✓ err=0.011 [19.2s]
+  [PID 52635] ρ=0.70 σw=1.5 | MATHEMATIQUES        ✓ err=0.009 [19.3s]
+  [PID 52640] ρ=0.70 σw=2.5 | SCIENCES-TECHNO-DP   ✓ err=0.004 [56.4s]
+  [PID 52640] ρ=0.70 σw=2.5 | ══ TERMINÉ (20 seeds) [634s total] ══
+  [PID 52636] ρ=0.60 σw=2.5 | SCIENCES-TECHNO-DP   ✓ err=0.005 [55.6s]
+  [PID 52639] ρ=0.70 σw=2.0 | SCIENCES-TECHNO-DP   ✓ err=0.006 [64.0s]
+  [PID 52636] ρ=0.60 σw=2.5 | ══ TERMINÉ (20 seeds) [642s total] ══
+  [PID 52637] ρ=0.60 σw=2.0 | SCIENCES-TECHNO-DP   ✓ err=0.004 [55.4s]
+  [PID 52639] ρ=0.70 σw=2.0 | ══ TERMINÉ (20 seeds) [649s total] ══
+  [PID 52637] ρ=0.60 σw=2.0 | ══ TERMINÉ (20 seeds) [654s total] ══
+  [PID 52638] ρ=0.60 σw=1.5 | SCIENCES-TECHNO-DP   ✓ err=0.008 [58.4s]
+  [PID 52638] ρ=0.60 σw=1.5 | ══ TERMINÉ (20 seeds) [668s total] ══
+  [ 25.0%] 3/12 points  (669s écoulé, ~2008s restant)     [PID 52635] ρ=0.70 σw=1.5 | SCIENCES-TECHNO-DP   ✓ err=0.003 [66.9s]
+  [PID 52635] ρ=0.70 σw=1.5 | ══ TERMINÉ (20 seeds) [680s total] ══
+  [ 50.0%] 6/12 points  (682s écoulé, ~682s restant)     [PID 52639] ρ=0.80 σw=2.5 | ARTS                 ✓ err=0.003 [275.2s] [HP]
+  [PID 52640] ρ=0.80 σw=1.5 | ARTS                 ✓ err=0.004 [301.0s] [HP]
+  [PID 52636] ρ=0.80 σw=2.0 | ARTS                 ✓ err=0.005 [295.1s] [HP]
+  [PID 52637] ρ=0.90 σw=1.5 | ARTS                 ✓ err=0.004 [296.5s] [HP]
+  [PID 52638] ρ=0.90 σw=2.0 | ARTS                 ✓ err=0.006 [314.4s] [HP]
+  [PID 52635] ρ=0.90 σw=2.5 | ARTS                 ✓ err=0.005 [304.4s] [HP]
+  [PID 52639] ρ=0.80 σw=2.5 | EPS                  ✓ err=0.011 [164.1s] [HP]
+  [PID 52640] ρ=0.80 σw=1.5 | EPS                  ✓ err=0.014 [171.1s] [HP]
+  [PID 52639] ρ=0.80 σw=2.5 | FRANCAIS             ✓ err=0.002 [26.2s]
+  [PID 52636] ρ=0.80 σw=2.0 | EPS                  ✓ err=0.015 [182.1s] [HP]
+  [PID 52637] ρ=0.90 σw=1.5 | EPS                  ✓ err=0.013 [172.9s] [HP]
+  [PID 52640] ρ=0.80 σw=1.5 | FRANCAIS             ✓ err=0.002 [26.4s]
+  [PID 52636] ρ=0.80 σw=2.0 | FRANCAIS             ✓ err=0.001 [27.2s]
+  [PID 52637] ρ=0.90 σw=1.5 | FRANCAIS             ✓ err=0.002 [25.7s]
+  [PID 52638] ρ=0.90 σw=2.0 | EPS                  ✓ err=0.010 [170.8s] [HP]
+  [PID 52635] ρ=0.90 σw=2.5 | EPS                  ✓ err=0.013 [169.0s] [HP]
+  [PID 52639] ρ=0.80 σw=2.5 | HISTOIRE-GEO         ✓ err=0.007 [42.3s]
+  [PID 52638] ρ=0.90 σw=2.0 | FRANCAIS             ✓ err=0.001 [26.1s]
+  [PID 52640] ρ=0.80 σw=1.5 | HISTOIRE-GEO         ✓ err=0.013 [47.3s]
+  [PID 52635] ρ=0.90 σw=2.5 | FRANCAIS             ✓ err=0.002 [26.9s]
+  [PID 52636] ρ=0.80 σw=2.0 | HISTOIRE-GEO         ✓ err=0.009 [44.0s]
+  [PID 52637] ρ=0.90 σw=1.5 | HISTOIRE-GEO         ✓ err=0.009 [50.7s]
+  [PID 52639] ρ=0.80 σw=2.5 | LANGUES VIVANTES     ✓ err=0.008 [43.3s]
+  [PID 52640] ρ=0.80 σw=1.5 | LANGUES VIVANTES     ✓ err=0.010 [38.6s]
+  [PID 52639] ρ=0.80 σw=2.5 | MATHEMATIQUES        ✓ err=0.005 [19.3s]
+  [PID 52635] ρ=0.90 σw=2.5 | HISTOIRE-GEO         ✓ err=0.006 [44.8s]
+  [PID 52638] ρ=0.90 σw=2.0 | HISTOIRE-GEO         ✓ err=0.010 [47.1s]
+  [PID 52636] ρ=0.80 σw=2.0 | LANGUES VIVANTES     ✓ err=0.010 [40.5s]
+  [PID 52640] ρ=0.80 σw=1.5 | MATHEMATIQUES        ✓ err=0.007 [20.1s]
+  [PID 52637] ρ=0.90 σw=1.5 | LANGUES VIVANTES     ✓ err=0.011 [41.3s]
+  [PID 52636] ρ=0.80 σw=2.0 | MATHEMATIQUES        ✓ err=0.007 [19.6s]
+  [PID 52637] ρ=0.90 σw=1.5 | MATHEMATIQUES        ✓ err=0.003 [21.4s]
+  [PID 52635] ρ=0.90 σw=2.5 | LANGUES VIVANTES     ✓ err=0.007 [40.4s]
+  [PID 52638] ρ=0.90 σw=2.0 | LANGUES VIVANTES     ✓ err=0.012 [39.9s]
+  [PID 52635] ρ=0.90 σw=2.5 | MATHEMATIQUES        ✓ err=0.003 [18.4s]
+  [PID 52638] ρ=0.90 σw=2.0 | MATHEMATIQUES        ✓ err=0.003 [19.9s]
+  [PID 52639] ρ=0.80 σw=2.5 | SCIENCES-TECHNO-DP   ✓ err=0.003 [68.1s]
+  [PID 52639] ρ=0.80 σw=2.5 | ══ TERMINÉ (20 seeds) [646s total] ══
+  [PID 52640] ρ=0.80 σw=1.5 | SCIENCES-TECHNO-DP   ✓ err=0.003 [74.2s]
+  [PID 52636] ρ=0.80 σw=2.0 | SCIENCES-TECHNO-DP   ✓ err=0.004 [66.8s]
+  [PID 52640] ρ=0.80 σw=1.5 | ══ TERMINÉ (20 seeds) [686s total] ══
+  [ 58.3%] 7/12 points  (1322s écoulé, ~944s restant)     [PID 52636] ρ=0.80 σw=2.0 | ══ TERMINÉ (20 seeds) [682s total] ══
+  [ 75.0%] 9/12 points  (1326s écoulé, ~442s restant)     [PID 52637] ρ=0.90 σw=1.5 | SCIENCES-TECHNO-DP   ✓ err=0.002 [67.5s]
+  [PID 52637] ρ=0.90 σw=1.5 | ══ TERMINÉ (20 seeds) [682s total] ══
+  [ 83.3%] 10/12 points  (1337s écoulé, ~267s restant)     [PID 52638] ρ=0.90 σw=2.0 | SCIENCES-TECHNO-DP   ✓ err=0.003 [56.9s]
+  [PID 52635] ρ=0.90 σw=2.5 | SCIENCES-TECHNO-DP   ✓ err=0.004 [61.9s]
+  [PID 52638] ρ=0.90 σw=2.0 | ══ TERMINÉ (20 seeds) [680s total] ══
+  [ 91.7%] 11/12 points  (1349s écoulé, ~123s restant)     [PID 52635] ρ=0.90 σw=2.5 | ══ TERMINÉ (20 seeds) [671s total] ══
+  [100.0%] 12/12 points  (1352s écoulé, ~0s restant)
+
+  Terminé en 1353s — 0/12 points de grille rejetés (err > 5%)
+
+========================================================================
+  RÉSULTATS : INTERVALLES DE CONFIANCE À 95%
+========================================================================
+
+  Champ                  │   µ_min  µ_central    µ_max │   σ_min  σ_central    σ_max │ N_obs
+  ─────────────────────────────────────────────────────────────────────────────────────
+  ARTS                   │  15.671     15.926   16.160 │   2.904      2.960    3.007 │ 240
+  EPS                    │  15.708     15.873   16.062 │   2.824      2.891    2.961 │ 240
+  FRANCAIS               │  12.504     12.642   12.777 │   3.851      3.946    4.048 │ 240
+  HISTOIRE-GEO           │  12.922     13.124   13.341 │   3.965      4.071    4.175 │ 240
+  LANGUES VIVANTES       │  13.572     13.821   14.016 │   4.102      4.208    4.308 │ 240
+  MATHEMATIQUES          │  12.041     12.161   12.299 │   4.866      4.983    5.123 │ 240
+  SCIENCES-TECHNO-DP     │  13.238     13.458   13.702 │   3.557      3.662    3.766 │ 240
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  INTERPRÉTATION                                                    │
+  │                                                                    │
+  │  Les intervalles ci-dessus sont des percentiles 2.5%–97.5% sur     │
+  │  l'ensemble des observations (grille × seeds).                     │
+  │                                                                    │
+  │  Ils intègrent DEUX sources d'incertitude :                        │
+  │   • Variabilité Monte Carlo (N=11000, 20 seeds/point)          │
+  │   • Incertitude de modélisation (ρ ∈ [0.6,0.9],              │
+  │     σ_within ∈ [1.5,2.5])                            │
+  │                                                                    │
+  │  Modèle : Beta + copule gaussienne (bornée [0,20], pas de         │
+  │  clipping artificiel). Calibration haute précision pour ARTS/EPS.  │
+  │                                                                    │
+  │  Les intervalles sont une enveloppe crédible plutôt qu'un IC       │
+  │  fréquentiste formel.                                              │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  Largeur des intervalles :
+  Champ                  │      Δµ       Δσ
+  ────────────────────────────────────────
+  ARTS                   │   0.490    0.103
+  EPS                    │   0.354    0.137
+  FRANCAIS               │   0.273    0.197
+  HISTOIRE-GEO           │   0.419    0.211
+  LANGUES VIVANTES       │   0.444    0.206
+  MATHEMATIQUES          │   0.257    0.257
+  SCIENCES-TECHNO-DP     │   0.464    0.209
+
+  Impact sur le score Affelnet (élève à 19/20 partout, coef 2.5) :
+  Scénario               │    Score
+  ───────────────────────────────────
+  Intervalle bas         │     8489
+  Central                │     8504
+  Intervalle haut        │     8517
+
+========================================================================
+  ✅ Analyse terminée
+========================================================================
 ```

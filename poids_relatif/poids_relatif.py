@@ -2,7 +2,7 @@
 """
 Graphique : poids relatif du score scolaire vs bonus IPS 400
 =============================================================
-Nouvelles stats brutes (sans tranchage) — Académie de Paris 2025.
+Nouvelles stats brutes (sans tranchage)
 
 Score scolaire = K × Σ [ H_champ × poids_champ ]
 avec H = 10 × (10 + (note − µ) / σ)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simulation Affelnet 2025 — Génération des notes trimestrielles de 11 000 collégiens
+Simulation Affelnet 2026 — Génération des notes trimestrielles de 11 000 collégiens
 ====================================================================================
 Ce script simule les 3 notes trimestrielles des 12 matières pour 11 000 élèves,
 de façon à ce que, après tranchage (étape 1) et regroupement (étape 2), les 7

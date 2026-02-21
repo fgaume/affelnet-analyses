@@ -4,7 +4,7 @@ Graphique : poids relatif du score scolaire vs TOUS les bonus IPS
 ==================================================================
 Bonus IPS : 0, 400, 800, 1200
 Coefficient K : 2.0 à 2.5
-Stats brutes (sans tranchage) — Académie de Paris 2025.
+Stats brutes (sans tranchage)
 Un encadré d'équivalence bonus → points de moyenne pour chaque K.
 """
 
