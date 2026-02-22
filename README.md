@@ -56,7 +56,7 @@ Pour chaque champ disciplinaire, on simule 11 000 élèves :
 
 Pour chaque champ, on cherche le couple (µ_raw, σ_between) tel que, après passage dans le pipeline complet (tranchage → moyenne → regroupement), les statistiques simulées correspondent aux statistiques académiques cibles.
 
-L'optimisation utilise **Nelder-Mead** en plusieurs passes. Nelder-Mead est un algorithme d'optimisation sans gradient : il explore l'espace des paramètres en déformant un simplexe (un triangle en 2D) qui se contracte progressivement vers le minimum. Il est adapté ici car la fonction objectif est bruitée (basée sur des simulations Monte-Carlo) et non différentiable (le tranchage introduit des discontinuités), ce qui exclut les méthodes à gradient classiques.
+L'optimisation utilise **Nelder-Mead** en plusieurs passes. Nelder-Mead est un algorithme d'optimisation sans gradient : il explore l'espace des paramètres en déformant un simplexe (un triangle en 2D) qui se contracte progressivement vers le minimum. Il est adapté ici car la fonction objectif est bruitée (basée sur des simulations Monte-Carlo) et non différentiable (le tranchage introduit des discontinuités), ce qui exclut les méthodes à gradient classiques. Voir https://fr.wikipedia.org/wiki/M%C3%A9thode_de_Nelder-Mead pour plus de précisions.
 
 - **Passe 1** : exploration large sur une grille de points de départ, parallélisée sur plusieurs cœurs.
 - **Passe 2** : raffinement séquentiel autour du meilleur point.
@@ -270,8 +270,6 @@ Les intervalles à 95% sont les percentiles 2.5%–97.5% sur l'ensemble des obse
 - **Incertitude de modélisation** : sensibilité aux hypothèses structurelles (ρ, σ_within)
 - **Variabilité Monte-Carlo** : fluctuations dues à l'échantillonnage fini (11 000 élèves)
 
-Ces intervalles constituent une enveloppe crédible plutôt qu'un intervalle de confiance fréquentiste formel. Le calcul est parallélisé sur plusieurs cœurs CPU.
-
 Voici les résultats :
 
 ```
@@ -410,8 +408,6 @@ Voici les résultats :
   │  Modèle : Beta + copule gaussienne (bornée [0,20], pas de          │
   │  clipping artificiel). Calibration haute précision pour ARTS/EPS.  │
   │                                                                    │
-  │  Les intervalles sont une enveloppe crédible plutôt qu'un IC       │
-  │  fréquentiste formel.                                              │
   └────────────────────────────────────────────────────────────────────┘
 
   Largeur des intervalles :
