@@ -1,0 +1,1010 @@
+[
+  {
+    "uai":"0752897S",
+    "nom":"CLG TOUR",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752913J",
+    "nom":"CLG SEVIGNE",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0754757N",
+    "nom":"CLG NOTRE DAME DE SION",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752896R",
+    "nom":"CLG NOTRE DAME DE FRANCE",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752842G",
+    "nom":"CLG FENELON STE MARIE",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0753978S",
+    "nom":"CLG ST AMBROISE",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752899U",
+    "nom":"CLG LA ROCHEFOUCAULD",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752821J",
+    "nom":"CLG MONCEAU ACTIVE BILINGU",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752919R",
+    "nom":"CLG PASCAL",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752843H",
+    "nom":"CLG BLOMET",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752900V",
+    "nom":"CLG STANISLAS",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752917N",
+    "nom":"CLG ST LOUIS DE GONZAGUE",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0752906B",
+    "nom":"CLG YABNE",
+    "niveau_scolaire_decile":10,
+    "annee":2026
+  },
+  {
+    "uai":"0753967E",
+    "nom":"CLG SOEUR ROSALIE",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752912H",
+    "nom":"CLG ALMA",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0753992G",
+    "nom":"CLG ST JOSEPH",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752920S",
+    "nom":"CLG MASSILLON",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752926Y",
+    "nom":"CLG GERSON",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752902X",
+    "nom":"CLG LES FRANCS BOURGEOIS",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752898T",
+    "nom":"CLG STE URSULE-L.BE.",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0753896C",
+    "nom":"CLG STE CLOTILDE",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0753908R",
+    "nom":"CLG LA BRUYERE-STE ISABELL",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752882A",
+    "nom":"CLG P. CLAUDEL",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752901W",
+    "nom":"CLG STE ELISABETH",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752895P",
+    "nom":"CLG CHARLES PEGUY",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752870M",
+    "nom":"CLG ST JEAN PASSY",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752934G",
+    "nom":"CLG ST MICHEL PICPUS",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752918P",
+    "nom":"CLG NOTRE DAME DES OISEAUX",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752923V",
+    "nom":"CLG ROCROY ST VINCENT DE P",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752927Z",
+    "nom":"CLG ST MICHEL DES BATIGNOL",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0750407K",
+    "nom":"CLG ROGNONI",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0754506R",
+    "nom":"CLG BOSSUET-NOTRE DAME",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752874S",
+    "nom":"CLG ECOLE ALSACIENNE",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0752894N",
+    "nom":"CLG STE JEANNE ELISABETH",
+    "niveau_scolaire_decile":9,
+    "annee":2026
+  },
+  {
+    "uai":"0751791P",
+    "nom":"CLG CONDORCET",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752526N",
+    "nom":"CLG HENRI IV",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0753381T",
+    "nom":"CLG ST VINCENT",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752529S",
+    "nom":"CLG CHAPTAL",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0751790N",
+    "nom":"CLG P. ALVISET",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752911G",
+    "nom":"CLG E. NAPOLEON ST PIERRE FOURIER",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752530T",
+    "nom":"CLG O. GREARD",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0754006X",
+    "nom":"CLG NOTRE DAME DE LOURDES",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0755052J",
+    "nom":"CLG N R HATORAH",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752528R",
+    "nom":"CLG V. DURUY",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0754004V",
+    "nom":"CLG ST GEORGES",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752936J",
+    "nom":"CLG ASSOMPTION",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752549N",
+    "nom":"CLG J.B. SAY",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752531U",
+    "nom":"CLG LAVOISIER",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0753996L",
+    "nom":"CLG ST HONORE EYLAU",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752534X",
+    "nom":"CLG LAMARTINE",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752527P",
+    "nom":"CLG MONTAIGNE",
+    "niveau_scolaire_decile":8,
+    "annee":2026
+  },
+  {
+    "uai":"0752553T",
+    "nom":"CLG H. DE BALZAC",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0753982W",
+    "nom":"CLG NOTRE DAME DE LA GARE",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0753206C",
+    "nom":"CLG SINAI",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0754003U",
+    "nom":"CLG HIRSCH",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752552S",
+    "nom":"CLG L. CARNOT",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752524L",
+    "nom":"CLG V. HUGO",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752108J",
+    "nom":"CLG Y. LE TAC",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752546K",
+    "nom":"CLG C. SEE",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752550P",
+    "nom":"CLG LA FONTAINE",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0754007Y",
+    "nom":"CLG STE LOUISE",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0753985Z",
+    "nom":"CLG STE MARIE",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752925X",
+    "nom":"CLG STE GENEVIEVE",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0750387N",
+    "nom":"CLG P.J.BERANGER",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752186U",
+    "nom":"CLG R. QUENEAU",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0754005W",
+    "nom":"CLG ST GERMAIN CHARONNE",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752250N",
+    "nom":"CLG P. GAUGUIN",
+    "niveau_scolaire_decile":7,
+    "annee":2026
+  },
+  {
+    "uai":"0752548M",
+    "nom":"CLG J. DE SAILLY",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752248L",
+    "nom":"CLG C. FRANCK",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752693V",
+    "nom":"CLG F. COUPERIN",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752545J",
+    "nom":"CLG BUFFON",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752387M",
+    "nom":"CLG A. MALRAUX",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752525M",
+    "nom":"CLG CHARLEMAGNE",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752532V",
+    "nom":"CLG J. DECOUR",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752538B",
+    "nom":"CLG A. RODIN",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752536Z",
+    "nom":"CLG VOLTAIRE",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752317L",
+    "nom":"CLG C. DEBUSSY",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752829T",
+    "nom":"CLG B. PALISSY",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752187V",
+    "nom":"CLG J. PREVERT",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0751703U",
+    "nom":"CLG J.B.POQUELIN",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0753369E",
+    "nom":"CLG BETH HANNA",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0752533W",
+    "nom":"CLG J. FERRY",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0754253R",
+    "nom":"CLG ST-EXUPERY",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0750362L",
+    "nom":"CLG BEAUMARCHAIS",
+    "niveau_scolaire_decile":6,
+    "annee":2026
+  },
+  {
+    "uai":"0750608D",
+    "nom":"CLG A. FRANK",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752107H",
+    "nom":"CLG P.DE RONSARD",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752554U",
+    "nom":"CLG S. MALLARME",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0750611G",
+    "nom":"CLG J. MOULIN",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752543G",
+    "nom":"CLG P. BERT",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752251P",
+    "nom":"CLG L. MICHEL",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0750609E",
+    "nom":"CLG P. VERLAINE",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752523K",
+    "nom":"CLG MONTGOLFIER",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0750429J",
+    "nom":"CLG R. DORGELES",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752539C",
+    "nom":"CLG C. MONET",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0750360J",
+    "nom":"CLG C. CHAPPE",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0750182R",
+    "nom":"CLG ST LOUIS 18E",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752557X",
+    "nom":"CLG M. RAVEL",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0754528P",
+    "nom":"CLG P. DE ROZIER",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0750444A",
+    "nom":"CLG G.COURTELINE",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0752249M",
+    "nom":"CLG J. ROMAINS",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0753965C",
+    "nom":"CLG ST JEAN GABRIEL",
+    "niveau_scolaire_decile":5,
+    "annee":2026
+  },
+  {
+    "uai":"0750465Y",
+    "nom":"CLG L. R. AUBRAC",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752551R",
+    "nom":"CLG MOLIERE",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0755779Z",
+    "nom":"CLG LA ROSE BLANCHE",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0750525N",
+    "nom":"CLG MOU.DES PRES",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0750552T",
+    "nom":"CLG F. DOLTO",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752189X",
+    "nom":"CLG G. FLAVIEN",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0750607C",
+    "nom":"CLG A. FOURNIER",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752542F",
+    "nom":"CLG J.F. OEBEN",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752316K",
+    "nom":"CLG G. SAND",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0750591K",
+    "nom":"CLG H. MATISSE",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752556W",
+    "nom":"CLG H. BOUCHER",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752957G",
+    "nom":"CLG G. BRAQUE",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0751706X",
+    "nom":"CLG C. PEGUY",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752192A",
+    "nom":"CLG G. DUHAMEL",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0755095F",
+    "nom":"CLG E. VARESE",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0754853T",
+    "nom":"CLG GEORGES LEVEN",
+    "niveau_scolaire_decile":4,
+    "annee":2026
+  },
+  {
+    "uai":"0752540D",
+    "nom":"CLG G. FAURE",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0752318M",
+    "nom":"CLG A.MODIGLIANI",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0750478M",
+    "nom":"CLG J.B. CLEMENT",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0751707Y",
+    "nom":"CLG PAILLERON",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0752195D",
+    "nom":"CLG G. PHILIPE",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0750610F",
+    "nom":"CLG J. VERNE",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0755778Y",
+    "nom":"CLG F. SELIGMANN",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0753936W",
+    "nom":"CLG G. TILLION",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0754305X",
+    "nom":"CLG A. CITROEN",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0752547L",
+    "nom":"CLG C. BERNARD",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0752537A",
+    "nom":"CLG P. VALERY",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0752252R",
+    "nom":"CLG H. BERLIOZ",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0752555V",
+    "nom":"CLG H. BERGSON",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0750584C",
+    "nom":"CLG VALMY",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0753518S",
+    "nom":"CLG G. FLAUBERT",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0750550R",
+    "nom":"CLG L. FAURE",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0753047E",
+    "nom":"CLG G.AUX BELLES",
+    "niveau_scolaire_decile":3,
+    "annee":2026
+  },
+  {
+    "uai":"0751705W",
+    "nom":"CLG A. DAUDET",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0752544H",
+    "nom":"CLG F. VILLON",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0752385K",
+    "nom":"CLG E. TRIOLET",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0754290F",
+    "nom":"CLG OZAR HATORAH",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0753046D",
+    "nom":"CLG F. TRISTAN",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0753345D",
+    "nom":"CLG E.MICHELET",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0754355B",
+    "nom":"CLG R. DOISNEAU",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0755029J",
+    "nom":"CLG HEIKHAL MENAHEM SINAI",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0755241P",
+    "nom":"CLG C. BESSON",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0750507U",
+    "nom":"CLG G. BRASSENS",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0750445B",
+    "nom":"CLG A.GIACOMETTI",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0751563S",
+    "nom":"CLG MME DE STAEL",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0755000C",
+    "nom":"CLG T. MANN",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0755840R",
+    "nom":"CLG C. LABOURE",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0754706H",
+    "nom":"CLG M. CURIE",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0752924W",
+    "nom":"CLG ST SULPICE",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0752696Y",
+    "nom":"CLG L. GAMBETTA",
+    "niveau_scolaire_decile":2,
+    "annee":2026
+  },
+  {
+    "uai":"0752695X",
+    "nom":"CLG G. BUDE",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0755030K",
+    "nom":"CLG D. MAYER",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0753937X",
+    "nom":"CLG E. GALOIS",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0750484U",
+    "nom":"CLG W.A. MOZART",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0752958H",
+    "nom":"CLG B. VIAN",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0750575T",
+    "nom":"CLG S. DELAUNAY",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0753938Y",
+    "nom":"CLG G. ROUAULT",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0752196E",
+    "nom":"CLG M. DORMOY",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0752198G",
+    "nom":"CLG P.M. FRANCE",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0752190Y",
+    "nom":"CLG APOLLINAIRE",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0752606A",
+    "nom":"CLG G. MELIES",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0753939Z",
+    "nom":"CLG J. PERRIN",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0751793S",
+    "nom":"CLG M. UTRILLO",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0750546L",
+    "nom":"CLG G.CLEMENCEAU",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0755747P",
+    "nom":"CLG S. LACORE",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0752694W",
+    "nom":"CLG C. CLAUDEL",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  },
+  {
+    "uai":"0755433Y",
+    "nom":"CLG A. CESAIRE",
+    "niveau_scolaire_decile":1,
+    "annee":2026
+  }
+]

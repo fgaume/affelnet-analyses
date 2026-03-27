@@ -1,0 +1,440 @@
+[
+  {
+    "uai":"0750655E",
+    "nom":"LYCEE LOUIS LE GRAND",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0753947H",
+    "nom":"LYCEE SAINT-JEAN DE PASSY",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0753873C",
+    "nom":"LYCEE FENELON SAINTE-MARIE",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0753647G",
+    "nom":"ECOLE ALSACIENNE",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0753933T",
+    "nom":"LYCEE SAINT-LOUIS DE GONZAGUE",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0753840S",
+    "nom":"LYCEE STANISLAS",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0753943D",
+    "nom":"LYCEE LA TOUR",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0750654D",
+    "nom":"LYCEE HENRI IV",
+    "niveau_scolaire_decile":10,
+    "annee":2024
+  },
+  {
+    "uai":"0750663N",
+    "nom":"LYCEE CHAPTAL",
+    "niveau_scolaire_decile":9,
+    "annee":2024
+  },
+  {
+    "uai":"0753890W",
+    "nom":"LYCEE CHARLES PEGUY",
+    "niveau_scolaire_decile":9,
+    "annee":2024
+  },
+  {
+    "uai":"0750660K",
+    "nom":"LYCEE FENELON",
+    "niveau_scolaire_decile":9,
+    "annee":2024
+  },
+  {
+    "uai":"0750667T",
+    "nom":"LYCEE CONDORCET",
+    "niveau_scolaire_decile":9,
+    "annee":2024
+  },
+  {
+    "uai":"0752937K",
+    "nom":"ECOLE  INTERNATIONAL BILINGUE",
+    "niveau_scolaire_decile":9,
+    "annee":2024
+  },
+  {
+    "uai":"0753941B",
+    "nom":"LYCEE GERSON",
+    "niveau_scolaire_decile":9,
+    "annee":2024
+  },
+  {
+    "uai":"0750656F",
+    "nom":"LYCEE LAVOISIER",
+    "niveau_scolaire_decile":9,
+    "annee":2024
+  },
+  {
+    "uai":"0753915Y",
+    "nom":"LYCEE BLOMET",
+    "niveau_scolaire_decile":8,
+    "annee":2024
+  },
+  {
+    "uai":"0753887T",
+    "nom":"LYCEE BOSSUET-NOTRE-DAME",
+    "niveau_scolaire_decile":8,
+    "annee":2024
+  },
+  {
+    "uai":"0753598D",
+    "nom":"LYCEE SEVIGNE",
+    "niveau_scolaire_decile":8,
+    "annee":2024
+  },
+  {
+    "uai":"0753834K",
+    "nom":"LYCEE YABNE",
+    "niveau_scolaire_decile":8,
+    "annee":2024
+  },
+  {
+    "uai":"0750652B",
+    "nom":"LYCEE CHARLEMAGNE",
+    "niveau_scolaire_decile":8,
+    "annee":2024
+  },
+  {
+    "uai":"0753874D",
+    "nom":"ECOLE ACTIVE JEANNINE MANUEL",
+    "niveau_scolaire_decile":8,
+    "annee":2024
+  },
+  {
+    "uai":"0753902J",
+    "nom":"LYCEE NOTRE-DAME DE FRANCE",
+    "niveau_scolaire_decile":8,
+    "annee":2024
+  },
+  {
+    "uai":"0754081D",
+    "nom":"LYCEE STE URSULE-LOUISE BETTIGNIES",
+    "niveau_scolaire_decile":7,
+    "annee":2024
+  },
+  {
+    "uai":"0750648X",
+    "nom":"LYCEE VICTOR HUGO",
+    "niveau_scolaire_decile":7,
+    "annee":2024
+  },
+  {
+    "uai":"0750657G",
+    "nom":"LYCEE MONTAIGNE",
+    "niveau_scolaire_decile":7,
+    "annee":2024
+  },
+  {
+    "uai":"0753919C",
+    "nom":"LYCEE PASCAL",
+    "niveau_scolaire_decile":7,
+    "annee":2024
+  },
+  {
+    "uai":"0750683K",
+    "nom":"LYCEE CLAUDE MONET",
+    "niveau_scolaire_decile":7,
+    "annee":2024
+  },
+  {
+    "uai":"0755352K",
+    "nom":"LYCEE N'R HATORAH",
+    "niveau_scolaire_decile":7,
+    "annee":2024
+  },
+  {
+    "uai":"0750653C",
+    "nom":"LYCEE SOPHIE GERMAIN",
+    "niveau_scolaire_decile":7,
+    "annee":2024
+  },
+  {
+    "uai":"0753824Z",
+    "nom":"LYCEE MASSILLON",
+    "niveau_scolaire_decile":6,
+    "annee":2024
+  },
+  {
+    "uai":"0753852E",
+    "nom":"LYCEE SAINTE-JEANNE ELISABETH",
+    "niveau_scolaire_decile":6,
+    "annee":2024
+  },
+  {
+    "uai":"0753849B",
+    "nom":"LYCEE L'ALMA",
+    "niveau_scolaire_decile":6,
+    "annee":2024
+  },
+  {
+    "uai":"0753844W",
+    "nom":"LYCEE SAINTE-GENEVIEVE",
+    "niveau_scolaire_decile":6,
+    "annee":2024
+  },
+  {
+    "uai":"0753897D",
+    "nom":"LYCEE SAINT-MICHEL DE PICPUS",
+    "niveau_scolaire_decile":6,
+    "annee":2024
+  },
+  {
+    "uai":"0753842U",
+    "nom":"LYCEE NOTRE-DAME DE SION",
+    "niveau_scolaire_decile":6,
+    "annee":2024
+  },
+  {
+    "uai":"0750702F",
+    "nom":"LYCEE JEAN DE LA FONTAINE",
+    "niveau_scolaire_decile":6,
+    "annee":2024
+  },
+  {
+    "uai":"0750700D",
+    "nom":"LYCEE JEAN-BAPTISTE SAY",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0754684J",
+    "nom":"LYCEE GEORGES BRASSENS",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0753851D",
+    "nom":"LYCEE LA ROCHEFOUCAULD",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0754965P",
+    "nom":"LYCEE LUCIEN DE HIRSCH",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0750662M",
+    "nom":"LYCEE VICTOR DURUY",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0750705J",
+    "nom":"LYCEE HONORE DE BALZAC",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0753820V",
+    "nom":"LYCEE LES FRANCS BOURGEOIS",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0750664P",
+    "nom":"LYCEE RACINE",
+    "niveau_scolaire_decile":5,
+    "annee":2024
+  },
+  {
+    "uai":"0753885R",
+    "nom":"LYCEE ROCROY SAINT-VINCENT DE PAUL",
+    "niveau_scolaire_decile":4,
+    "annee":2024
+  },
+  {
+    "uai":"0753916Z",
+    "nom":"LYCEE SAINTE-ELISABETH",
+    "niveau_scolaire_decile":4,
+    "annee":2024
+  },
+  {
+    "uai":"0750699C",
+    "nom":"LYCEE JANSON DE SAILLY",
+    "niveau_scolaire_decile":4,
+    "annee":2024
+  },
+  {
+    "uai":"0750669V",
+    "nom":"LYCEE JULES FERRY",
+    "niveau_scolaire_decile":4,
+    "annee":2024
+  },
+  {
+    "uai":"0754924V",
+    "nom":"LYCEE NOTRE-DAME -ST VINCENT DE PAUL",
+    "niveau_scolaire_decile":4,
+    "annee":2024
+  },
+  {
+    "uai":"0750704H",
+    "nom":"LYCEE CARNOT",
+    "niveau_scolaire_decile":4,
+    "annee":2024
+  },
+  {
+    "uai":"0753946G",
+    "nom":"LYCEE NOTRE-DAME DES OISEAUX",
+    "niveau_scolaire_decile":4,
+    "annee":2024
+  },
+  {
+    "uai":"0750647W",
+    "nom":"LYCEE TURGOT",
+    "niveau_scolaire_decile":3,
+    "annee":2024
+  },
+  {
+    "uai":"0753883N",
+    "nom":"LYCEE EDGAR POE",
+    "niveau_scolaire_decile":3,
+    "annee":2024
+  },
+  {
+    "uai":"0753827C",
+    "nom":"LYCEE LOUISE DE MARILLAC",
+    "niveau_scolaire_decile":3,
+    "annee":2024
+  },
+  {
+    "uai":"0750715V",
+    "nom":"LYCEE MAURICE RAVEL",
+    "niveau_scolaire_decile":3,
+    "annee":2024
+  },
+  {
+    "uai":"0753948J",
+    "nom":"LYCEE L'ASSOMPTION",
+    "niveau_scolaire_decile":3,
+    "annee":2024
+  },
+  {
+    "uai":"0753898E",
+    "nom":"LYCEE E. NAPOLEON ST PIERRE FOURIER",
+    "niveau_scolaire_decile":3,
+    "annee":2024
+  },
+  {
+    "uai":"0753809H",
+    "nom":"LYCEE PAUL CLAUDEL D'HULST",
+    "niveau_scolaire_decile":3,
+    "annee":2024
+  },
+  {
+    "uai":"0750703G",
+    "nom":"LYCEE MOLIERE",
+    "niveau_scolaire_decile":2,
+    "annee":2024
+  },
+  {
+    "uai":"0755709Y",
+    "nom":"LYCEE SAINTE-LOUISE",
+    "niveau_scolaire_decile":2,
+    "annee":2024
+  },
+  {
+    "uai":"0754086J",
+    "nom":"LYCEE CHARLES DE FOUCAULD",
+    "niveau_scolaire_decile":2,
+    "annee":2024
+  },
+  {
+    "uai":"0753935V",
+    "nom":"LYCEE GEORGES LEVEN",
+    "niveau_scolaire_decile":2,
+    "annee":2024
+  },
+  {
+    "uai":"0754325U",
+    "nom":"LYCEE BETH HANNA",
+    "niveau_scolaire_decile":2,
+    "annee":2024
+  },
+  {
+    "uai":"0750714U",
+    "nom":"LYCEE HELENE BOUCHER",
+    "niveau_scolaire_decile":2,
+    "annee":2024
+  },
+  {
+    "uai":"0750694X",
+    "nom":"LYCEE CAMILLE SEE",
+    "niveau_scolaire_decile":2,
+    "annee":2024
+  },
+  {
+    "uai":"0753838P",
+    "nom":"LYCEE SAINT-SULPICE",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  },
+  {
+    "uai":"0753959W",
+    "nom":"LYCEE SAINT-MICHEL DES BATIGNOLLES",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  },
+  {
+    "uai":"0750711R",
+    "nom":"LYCEE HENRI BERGSON",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  },
+  {
+    "uai":"0750693W",
+    "nom":"LYCEE BUFFON",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  },
+  {
+    "uai":"0750675B",
+    "nom":"LYCEE VOLTAIRE",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  },
+  {
+    "uai":"0750684L",
+    "nom":"LYCEE GABRIEL FAURE",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  },
+  {
+    "uai":"0750673Z",
+    "nom":"LYCEE COLBERT",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  },
+  {
+    "uai":"0750668U",
+    "nom":"LYCEE JACQUES DECOUR",
+    "niveau_scolaire_decile":1,
+    "annee":2024
+  }
+]

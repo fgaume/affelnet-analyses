@@ -11,7 +11,7 @@ base_url = "https://datasets-server.huggingface.co/rows"
 params_common = {
     "dataset": "fgaume/affelnet-paris-bonus-ips-colleges",
     "config": "default",
-    "split": "train"
+    "split": "ips"
 }
 
 all_rows = []
@@ -34,27 +34,24 @@ except Exception as e:
 
 df = pd.DataFrame(all_rows)
 
+# Normalisation des noms de colonnes (le dataset peut utiliser des majuscules)
+df.columns = [c.lower() for c in df.columns]
+
 # Vérification Colonnes
-required = ['nom', 'ips_2025', 'bonus_ips_2025', 'secteur']
+required = ['nom', 'ips_2025', 'bonus_ips_2025', 'ips_2026', 'bonus_ips_2026', 'secteur']
 for col in required:
     if col not in df.columns:
-        print(f"Erreur: Colonne '{col}' manquante.")
+        print(f"Erreur: Colonne '{col}' manquante. Colonnes disponibles : {list(df.columns)}")
         exit()
 
 # Nettoyage
 df['ips_2025'] = pd.to_numeric(df['ips_2025'], errors='coerce')
-df = df.dropna(subset=['ips_2025'])
+df['ips_2026'] = pd.to_numeric(df['ips_2026'], errors='coerce')
 
 # ==============================================================================
 # 2. LOGIQUE DE CALCUL 2026
 # ==============================================================================
-def calcul_bonus_2026(ips):
-    if ips < 105: return 1200
-    elif 105 <= ips < 117: return 800
-    elif 117 <= ips < 130: return 400
-    else: return 0
-
-df['Bonus 2026'] = df['ips_2025'].apply(calcul_bonus_2026)
+df['Bonus 2026'] = df['bonus_ips_2026'].fillna(0)
 df.rename(columns={'bonus_ips_2025': 'Bonus 2025'}, inplace=True)
 
 # Séparation des jeux de données
