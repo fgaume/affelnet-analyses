@@ -19,7 +19,7 @@ df_ips.columns = [c.lower() for c in df_ips.columns]
 # ==============================================================================
 # 2. RÉCUPÉRATION DES DONNÉES DNB (3 sessions)
 # ==============================================================================
-sessions = [2022, 2023, 2024]
+sessions = [2022, 2023, 2024, 2025]
 frames = []
 
 for session in sessions:
@@ -95,7 +95,7 @@ df_priv = df[df['secteur'] == 'Privé'].copy()
 # ==============================================================================
 fig1, ax1 = plt.subplots(figsize=(10, 7))
 
-colors_session = {2022: '#3498db', 2023: '#e67e22', 2024: '#2ecc71'}
+colors_session = {2022: '#3498db', 2023: '#e67e22', 2024: '#2ecc71', 2025: '#9b59b6'}
 
 for session in sessions:
     sub = df_pub[df_pub['session'] == session]
@@ -111,7 +111,7 @@ ax1.plot(x_pub, sl_pub * x_pub + int_pub, 'k--', linewidth=2,
 ax1.set_xlabel("IPS du collège", fontsize=12)
 ax1.set_ylabel("Note à l'écrit DNB (standardisée, µ=10)", fontsize=12)
 ax1.set_title("Corrélation IPS vs niveau scolaire — Collèges publics parisiens\n"
-              "(sessions 2022-2024, note standardisée par session)",
+              "(sessions 2022-2025, note standardisée par session)",
               fontweight='bold', fontsize=13, pad=15)
 ax1.legend(fontsize=10)
 ax1.grid(alpha=0.3)
@@ -138,7 +138,7 @@ if len(df_priv) > 5:
 ax2.set_xlabel("IPS du collège", fontsize=12)
 ax2.set_ylabel("Note à l'écrit DNB (standardisée, µ=10)", fontsize=12)
 ax2.set_title("Corrélation IPS vs niveau scolaire — Collèges privés parisiens\n"
-              "(sessions 2022-2024, note standardisée par session)",
+              "(sessions 2022-2025, note standardisée par session)",
               fontweight='bold', fontsize=13, pad=15)
 ax2.legend(fontsize=10)
 ax2.grid(alpha=0.3)

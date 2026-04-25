@@ -73,7 +73,7 @@ dnb_url = (
     "?select=uai%2Cnb_candidats_g%2Ctaux_de_reussite_g"
     "&lang=fr"
     "&refine=academie%3A%22PARIS%22"
-    "&refine=session%3A%222024%22"
+    "&refine=session%3A%222025%22"
     "&timezone=Europe%2FBerlin"
 )
 
@@ -205,21 +205,26 @@ for bonus in [0, 400, 600, 800, 1200]:
     signe = "+" if delta >= 0 else ""
     print(f"  Bonus {bonus:>4} pts : 2025={n25:>5} élèves  →  2026={n26:>5} élèves  ({signe}{delta})")
 
-# Analyse du groupe 600 pts
-mask_600 = df_public['Bonus 2025'] == 600
-base_600 = df_public[mask_600]
+# Analyse des changements de bonus, groupés par ancien bonus
+changed = df_public[df_public['Bonus 2025'] != df_public['Bonus 2026']].copy()
+changed['delta'] = changed['Bonus 2026'] - changed['Bonus 2025']
 
-gagnants = base_600[base_600['Bonus 2026'] == 800]
-perdants = base_600[base_600['Bonus 2026'] == 400]
+for ancien_bonus in [0, 600, 1200]:
+    groupe = changed[changed['Bonus 2025'] == ancien_bonus]
+    if groupe.empty:
+        continue
 
-print(f"\nCollèges publics actuellement à 600 pts : {len(base_600)} ({base_600['effectif_admis'].sum()} élèves)")
-print(f"  → Hausse (vers 800 pts) : {len(gagnants)} collèges ({gagnants['effectif_admis'].sum()} élèves)")
-print(f"  → Baisse (vers 400 pts) : {len(perdants)} collèges ({perdants['effectif_admis'].sum()} élèves)")
+    print(f"\n{'─'*60}")
+    print(f"ANCIEN BONUS {ancien_bonus} pts → {len(groupe)} collège(s) ont changé")
+    print(f"{'─'*60}")
 
-print("\n--- ÉTABLISSEMENTS EN HAUSSE (vers 800 pts) ---")
-for _, row in gagnants.sort_values('ips_2025').iterrows():
-    print(f"  {row['nom']:<45} IPS={row['ips_2025']:.0f}  effectif={row['effectif_admis']}")
+    for nouveau_bonus, sous_groupe in groupe.groupby('Bonus 2026'):
+        direction = "↑" if nouveau_bonus > ancien_bonus else "↓"
+        print(f"\n  {direction} Vers {int(nouveau_bonus)} pts ({len(sous_groupe)} collèges, "
+              f"{sous_groupe['effectif_admis'].sum()} élèves) :")
+        for _, row in sous_groupe.sort_values('ips_2025').iterrows():
+            print(f"    {row['nom']:<45} IPS={row['ips_2025']:.0f}  effectif={row['effectif_admis']}")
 
-print("\n--- ÉTABLISSEMENTS EN BAISSE (vers 400 pts) ---")
-for _, row in perdants.sort_values('ips_2025').iterrows():
-    print(f"  {row['nom']:<45} IPS={row['ips_2025']:.0f}  effectif={row['effectif_admis']}")
+print(f"\n{'─'*60}")
+print(f"TOTAL : {len(changed)} collèges publics ont changé de bonus "
+      f"({changed['effectif_admis'].sum()} élèves)")
