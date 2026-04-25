@@ -50,7 +50,7 @@ dnb_url = (
     "?select=uai%2Cnb_candidats_g%2Ctaux_de_reussite_g"
     "&lang=fr"
     "&refine=academie%3A%22PARIS%22"
-    "&refine=session%3A%222024%22"
+    "&refine=session%3A%222025%22"
     "&timezone=Europe%2FBerlin"
 )
 
@@ -66,18 +66,24 @@ df_dnb['effectif_admis'] = (df_dnb['nb_candidats_g'] * df_dnb['taux_de_reussite_
 # 3. JOINTURE + FILTRE PUBLIC
 # ==============================================================================
 df = df_ips.merge(df_dnb[['uai', 'effectif_admis']], on='uai', how='left')
+# Coysevox (0752319N) : pas de 3e en 2026 (alternance avec Berlioz), exclu des effectifs
+df = df[df['uai'] != '0752319N']
 df = df.dropna(subset=['effectif_admis'])
 df['effectif_admis'] = df['effectif_admis'].astype(int)
 
 df['Bonus 2025'] = df['bonus_ips_2025']
 df['Bonus 2026'] = df['bonus_ips_2026']
 
+# Correction IPS 2026 : ces 3 collèges passent de 1200 à 800
+# for uai in ['0755779Z', '0751707Y', '0752555V']:
+#     df.loc[df['uai'] == uai, 'Bonus 2026'] = 800
+
 df_pub = df[df['secteur'] == 'Public'].copy()
 
 # ==============================================================================
 # 4. MATRICE DE TRANSITION
 # ==============================================================================
-groupes_2025 = sorted(df_pub['Bonus 2025'].unique())
+groupes_2025 = sorted(int(g) for g in df_pub['Bonus 2025'].unique())
 groupes_2026 = [0, 400, 800, 1200]
 
 # Couleurs par groupe IPS : 0=rouge, 400=orange, 800=bleu, 1200=vert
@@ -232,9 +238,8 @@ for idx_26, g26 in enumerate(groupes_2026):
 ax1.set_xticks(range(len(groupes_2026)))
 ax1.set_xticklabels([f"{g} pts" for g in groupes_2026], fontsize=11)
 ax1.set_xlabel("Bonus IPS 2026 (nouveau barème)", fontsize=12, labelpad=10)
-ax1.set_ylabel("Nombre d'élèves (admis DNB 2024)", fontsize=12)
-ax1.set_title("Transition des ÉLÈVES du public entre bonus IPS 2025 et 2026\n"
-             "(d'où viennent les élèves de chaque nouveau groupe ?)",
+ax1.set_ylabel("Nombre d'élèves (admis DNB 2025)", fontsize=12)
+ax1.set_title("Transition des ÉLÈVES du public entre bonus IPS 2025 et 2026",
              fontweight='bold', fontsize=13, pad=15)
 
 legend_patches = [mpatches.Patch(color=colors_ips[g], label=f"Ancien bonus {g} pts")
@@ -272,8 +277,7 @@ ax2.set_xticks(range(len(groupes_2026)))
 ax2.set_xticklabels([f"{g} pts" for g in groupes_2026], fontsize=11)
 ax2.set_xlabel("Bonus IPS 2026 (nouveau barème)", fontsize=12, labelpad=10)
 ax2.set_ylabel("Nombre de collèges", fontsize=12)
-ax2.set_title("Transition des COLLÈGES du public entre bonus IPS 2025 et 2026\n"
-             "(combien de collèges dans chaque nouveau groupe ?)",
+ax2.set_title("Transition des COLLÈGES du public entre bonus IPS 2025 et 2026",
              fontweight='bold', fontsize=13, pad=15)
 
 ax2.legend(handles=legend_patches, loc='upper left', fontsize=10,
@@ -315,8 +319,7 @@ ax3.set_xticks(range(len(groupes_2026_gp)))
 ax3.set_xticklabels([f"{g} pts" if isinstance(g, int) else g for g in groupes_2026_gp], fontsize=11)
 ax3.set_xlabel("Nouveau Bonus IPS 2026 (800 et 1200 regroupés)", fontsize=12, labelpad=10)
 ax3.set_ylabel("Nombre de collèges", fontsize=12)
-ax3.set_title("Transition des COLLÈGES (Public) — Regroupement 800+1200\n"
-             "(simplification du nouveau barème)",
+ax3.set_title("Transition des COLLÈGES (Public) — Regroupement 800+1200",
              fontweight='bold', fontsize=13, pad=15)
 
 ax3.legend(handles=legend_patches, loc='upper left', fontsize=10,
@@ -356,9 +359,8 @@ for idx_26, g26 in enumerate(groupes_2026_gp):
 ax4.set_xticks(range(len(groupes_2026_gp)))
 ax4.set_xticklabels([f"{g} pts" if isinstance(g, int) else g for g in groupes_2026_gp], fontsize=11)
 ax4.set_xlabel("Nouveau Bonus IPS 2026 (800 et 1200 regroupés)", fontsize=12, labelpad=10)
-ax4.set_ylabel("Nombre d'élèves (admis DNB 2024)", fontsize=12)
-ax4.set_title("Transition des ÉLÈVES (Public) — Regroupement 800+1200\n"
-             "(d'où viennent les élèves de chaque nouveau bloc ?)",
+ax4.set_ylabel("Nombre d'élèves (admis DNB 2025)", fontsize=12)
+ax4.set_title("Transition des ÉLÈVES (Public) — Regroupement 800+1200",
              fontweight='bold', fontsize=13, pad=15)
 
 ax4.legend(handles=legend_patches, loc='upper left', fontsize=10,
